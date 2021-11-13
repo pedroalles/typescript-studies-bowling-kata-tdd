@@ -6,6 +6,14 @@ describe('Bowling game', () => {
         for (let i = 0; i < 20; i += 1) {
             g.roll(0);
         }
-        expect(g.score()).toBe(0);
+        expect(g.score).toBe(0);
+    });
+
+    test('should score 20 for "all ones game"', () => {
+        const g: Game = new Game();
+        for (let i = 0; i < 20; i += 1) {
+            g.roll(1);
+        }
+        expect(g.score).toBe(20);
     });
 });
