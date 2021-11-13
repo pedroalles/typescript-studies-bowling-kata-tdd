@@ -20,8 +20,14 @@ describe('Bowling game', () => {
     test('should score 16 with a "spare" followed by a 3 ball', () => {
         rollSpare();
         g.roll(3);
-
         expect(g.score()).toBe(16);
+    });
+
+    test('should score 24 for a "strike" followed by a 3 and 4 balls', () => {
+        g.roll(10); //strike
+        g.roll(3);
+        g.roll(4);
+        expect(g.score()).toBe(24);
     });
 
     function rollSpare(): void {
