@@ -8,10 +8,18 @@ export class Game {
 
         for (let frame = 0; frame < 10; frame += 1) {
 
-            if (this.isSpare(frameIndex)) {
+            //strike case
+            if (this.rolls[frameIndex] === 10) {
+                score += 10
+                    + this.rolls[frameIndex + 1]
+                    + this.rolls[frameIndex + 2];
+                frameIndex += 1;
+            }
+            else if (this.isSpare(frameIndex)) {
                 score += 10 + this.rolls[frameIndex + 2];
                 frameIndex += 2;
-            } else {
+            }
+            else {
                 score += this.rolls[frameIndex] + this.rolls[frameIndex + 1];
                 frameIndex += 2;
             }
